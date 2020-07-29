@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from "./style";
 
-function card() {
+function card(props) {
     return (
         <>
             <div className="card-container">

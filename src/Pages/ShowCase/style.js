@@ -74,5 +74,8 @@ export default () => (
       margin-right: auto;
       margin-left: auto;
   }
+  .red{
+      color:red
+  }
   `}</style>
 );

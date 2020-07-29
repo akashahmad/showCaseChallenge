@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../../App.css';
 import Style from "./style";
-function inputField() {
+const InputField=(props) =>{
+    let {setUserName}=props
     return (
         <>
-        <input type="text" placeholder="John Doe" ></input>
+        <input type="text" placeholder="" onChange={(event)=>{setUserName(event.target.value)}}></input>
         <Style/>
         </>
     )
 }
-export default inputField;
+export default InputField;

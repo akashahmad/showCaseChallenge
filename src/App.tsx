@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Home from './Pages/Home/Home';
-import Main from './Pages/MainScreen/mainscreen';
+import Home from './Pages/Login';
+import Main from './Pages/ShowCase';
 import {
   BrowserRouter as Router,
   Switch,

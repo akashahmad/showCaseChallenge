@@ -1,19 +1,17 @@
 import * as ACTION_TYPES from '../../actions/actionTypes';
 
 const initialState = {
-    universities: null,
+    name:null
 };
-
-const ShowCaseReducer = (state = initialState, action:any) => {
+const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ACTION_TYPES.GET_UNIVERSITIES_DATA:
+        case ACTION_TYPES.SET_NAME:
             return {
                 ...state,
-                data: action.payload,
+                name: action.payload,
             };
         default:
             return state;
     }
 };
-
-export default ShowCaseReducer;
+export default LoginReducer;
