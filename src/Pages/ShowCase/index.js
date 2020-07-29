@@ -52,7 +52,7 @@ const Mainscreen = (props) => {
         <>
             <div>
                 <Navbar />
-                <Bookmark />
+                <Bookmark educations={educations}/>
                 <div className="container">
                     <h1>Welcome to {userName} education page.</h1>
                     <div onClick={openModal}><Button name="Add New Education" color="blue" /></div>
@@ -90,18 +90,7 @@ const Mainscreen = (props) => {
                                 </div>
                             </div>
                             <div className="row">
-                                <div>
-                                    <h1>Start Date</h1>
-                                    <input type="text" placeholder="February 2018" name="startDate" onChange={(e) => {
-                                        changeValue("startDate", e.target.value)
-                                    }}></input>
-                                </div>
-                                <div>
-                                    <h1>End Date</h1>
-                                    <input type="text" placeholder="December 2020" name="endDate" onChange={(e) => {
-                                        changeValue("endDate", e.target.value)
-                                    }}></input>
-                                </div>
+                
                                 <div>
                                     <h1>Grade</h1>
                                     <input type="text" placeholder="A" name="grade" onChange={(e) => {
