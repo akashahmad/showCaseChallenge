@@ -5,7 +5,7 @@ import Bookmark from '../../Components/Molecules/BookMarkMenu/bookmarkmenu';
 import Button from '../../Components/Atoms/Button/Button';
 import Modal from 'react-modal';
 import { connect } from "react-redux";
-import { setEducations } from "../../store/actions/showCaseActions";
+import { setEducations, searchUniversities } from "../../store/actions/showCaseActions";
 import Style from "./style";
 const customStyles = {
     content: {
@@ -21,7 +21,7 @@ const customStyles = {
 };
 
 const Mainscreen = (props) => {
-    let { userName, setEducationsInStore, educations } = props;
+    let { userName, setEducationsInStore, educations, searchUniversitiesCall, universities } = props;
     let subtitle;
     const [modalIsOpen, setIsOpen] = useState(false);
     const [education, setEducation] = useState({})
@@ -52,12 +52,12 @@ const Mainscreen = (props) => {
         <>
             <div>
                 <Navbar />
-                <Bookmark educations={educations}/>
+                <Bookmark educations={educations} />
                 <div className="container">
                     <h1>Welcome to {userName} education page.</h1>
                     <div onClick={openModal}><Button name="Add New Education" color="blue" /></div>
                 </div>
-                <Cards educations={educations}/>
+                <Cards educations={educations} />
                 <div>
                     <Modal
                         isOpen={modalIsOpen}
@@ -70,11 +70,18 @@ const Mainscreen = (props) => {
                         <div ref={_subtitle => (subtitle = _subtitle)}></div>
                         <form className="form" onSubmit={submit}>
                             <div className="row">
-                                <div>
+                                <div className="handle-search">
                                     <h1>University Name<span className="red">*</span></h1>
-                                    <input type="text" placeholder="MIT" name="university" minLength="2" maxLength="50" required onChange={(e) => {
+                                    <input type="text" placeholder="MIT" name="university" minLength="2" maxLength="50" value={education&&education.university?education.university:""} required onChange={(e) => {
                                         changeValue("university", e.target.value)
+                                        searchUniversitiesCall(e.target.value)
                                     }}></input>
+                                    <ul className="list-style">
+                                        {universities && universities.map((university, index) => <li onClick={()=>{
+                                            changeValue("university", university.name)
+                                            searchUniversitiesCall("")
+                                            }} key={index}>{university.name}</li>)}
+                                    </ul>
                                 </div>
                                 <div>
                                     <h1>Degree<span className="red">*</span></h1>
@@ -90,7 +97,7 @@ const Mainscreen = (props) => {
                                 </div>
                             </div>
                             <div className="row">
-                
+
                                 <div>
                                     <h1>Grade</h1>
                                     <input type="text" placeholder="A" name="grade" onChange={(e) => {
@@ -119,13 +126,16 @@ const Mainscreen = (props) => {
 const mapStateToProps = (state) => {
     return {
         userName: state.login.name,
-        educations: state.showCase.educations
+        educations: state.showCase.educations,
+        universities: state.showCase.universities
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
         setEducationsInStore: (educations) =>
-            dispatch(setEducations(educations))
+            dispatch(setEducations(educations)),
+        searchUniversitiesCall: (keyword) =>
+            dispatch(searchUniversities(keyword)),
     };
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Mainscreen);
+export default connect(mapStateToProps, mapDispatchToProps)(Mainscreen);

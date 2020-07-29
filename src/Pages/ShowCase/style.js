@@ -1,6 +1,6 @@
 import React from "react";
 export default () => (
-  <style jsx="true">{`
+    <style jsx="true">{`
   .container
   {
       display: flex;
@@ -76,6 +76,24 @@ export default () => (
   }
   .red{
       color:red
+  }
+  .list-style {
+    list-style-type:none;
+    position:absolute;
+    width:100%;
+    height: 115px;
+    overflow:auto
+
+  }
+  .list-style li{
+      cursor:pointer;
+      padding:8px;
+      background-color:lightgray;
+      margin:2px
+
+  }
+  .handle-search{
+      position:relative
   }
   `}</style>
 );
