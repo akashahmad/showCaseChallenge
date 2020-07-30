@@ -3,12 +3,13 @@ export default () => (
   <style jsx="true">{`
   .card
   {
+
       margin-bottom: 25px;
   }
   .cards-container
   {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       margin-top: 50px;
       margin-left: 100px;
   }

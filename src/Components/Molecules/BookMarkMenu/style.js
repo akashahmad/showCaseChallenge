@@ -26,6 +26,10 @@ export default () => (
    
   
   }
+  .book-marks{
+    display: flex;
+    flex-direction: column-reverse;
+  }
   
   `}</style>
 );
