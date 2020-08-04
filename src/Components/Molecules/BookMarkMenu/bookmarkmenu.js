@@ -7,14 +7,14 @@ function bookmarkmenu(props) {
     return educations && educations.length !== 0 && (
 
         <>
-            <div className="book-mark-menu">
+           {educations&&educations.length!==0? <div className="book-mark-menu">
                 <h1>Bookmark Menu</h1>
-                <Button name="Showcase University" color="blue" />
+                
                 <div className="book-marks">
                     {educations.map((education, index) => <Button key={index} name={education.university} color="white" />)}
                 </div>
 
-            </div>
+            </div>:""}
             <Style />
         </>
     )
