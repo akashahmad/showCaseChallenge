@@ -5,9 +5,9 @@ export default () => (
 
     border-radius: 3%;
     border: 0;
-    padding: 10px;
+   
     width: 250px;
-    height: 50px;
+    min-height: 50px;
     line-height: 22px;
     font-size: 16px;
     text-align: center;

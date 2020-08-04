@@ -41,6 +41,7 @@ const Mainscreen = (props) => {
         let duplicateEducations = [...educations]
         duplicateEducations.push(education)
         setEducationsInStore([...duplicateEducations])
+        setEducation({})
     }
     const changeValue = (type, value) => {
         let duplicateEducation = { ...education }
@@ -72,16 +73,16 @@ const Mainscreen = (props) => {
                             <div className="row">
                                 <div className="handle-search">
                                     <h1>University Name<span className="red">*</span></h1>
-                                    <input type="text" placeholder="MIT" name="university" minLength="2" maxLength="50" value={education&&education.university?education.university:""} required onChange={(e) => {
+                                    <input type="text" placeholder="MIT" name="university" minLength="2" maxLength="50" value={education && education.university ? education.university : ""} required onChange={(e) => {
                                         changeValue("university", e.target.value)
                                         searchUniversitiesCall(e.target.value)
                                     }}></input>
-                                    <ul className="list-style">
-                                        {universities && universities.map((university, index) => <li onClick={()=>{
+                                    {universities && universities.length !==0 &&<ul className="list-style">
+                                        {universities && universities.map((university, index) => <li onClick={() => {
                                             changeValue("university", university.name)
                                             searchUniversitiesCall("")
-                                            }} key={index}>{university.name}</li>)}
-                                    </ul>
+                                        }} key={index}>{university.name}</li>)}
+                                    </ul>}
                                 </div>
                                 <div>
                                     <h1>Degree<span className="red">*</span></h1>
@@ -102,6 +103,18 @@ const Mainscreen = (props) => {
                                     <h1>Grade</h1>
                                     <input type="text" placeholder="A" name="grade" onChange={(e) => {
                                         changeValue("grade", e.target.value)
+                                    }}></input>
+                                </div>
+                                <div>
+                                    <h1>Start Date</h1>
+                                    <input type="text" placeholder="15 Febrary 2016" name="startDate" onChange={(e) => {
+                                        changeValue("startDate", e.target.value)
+                                    }}></input>
+                                </div>
+                                <div>
+                                    <h1>End Date</h1>
+                                    <input type="text" placeholder="15 Febrary 2016" name="endDate" onChange={(e) => {
+                                        changeValue("endDate", e.target.value)
                                     }}></input>
                                 </div>
                             </div>

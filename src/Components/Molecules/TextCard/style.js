@@ -1,6 +1,6 @@
 import React from "react";
 export default () => (
-  <style jsx="true">{`
+    <style jsx="true">{`
   .card-container
   {
       margin-left: auto;
@@ -13,7 +13,8 @@ export default () => (
   .card-container .textin
   {
       display: flex;
-      justify-content: space-between;
+      flex-direction: row;
+    justify-content: space-between;
   }
   .textin p{
    font-weight: lighter;
@@ -36,6 +37,9 @@ export default () => (
   .description
   {
       padding-top: 21px;
+  }
+  .fonts{
+    font-weight: 100;
   }
   
   `}</style>
