@@ -18,12 +18,12 @@ export default () => (
       justify-content: space-between;
       margin-left: auto;
       margin-right: auto;
-      width: 1000px;
+      width: 1280px;
+      margin-top:30px
    
   }
   .container h1{
       font-size: 24px;
-      padding-left: 100px;
   }
   .close
   {
@@ -76,6 +76,7 @@ export default () => (
       text-align: left;
       width: 900px;
       height: 100px;
+     padding:10px 
    
   }
   .save

@@ -6,11 +6,11 @@ export default () => (
       display: flex;
       align-items: center;
       justify-content: center;
+      height:90vh;
   
   }
   .home-container .main-content
-  {   margin-top: 80px;
-      padding: 40px;
+  {   padding: 40px;
       display: flex;
       justify-content: center;
       align-items: center;

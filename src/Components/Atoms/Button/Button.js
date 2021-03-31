@@ -4,7 +4,7 @@ import Style from "./style";
 function Button(props) {
     return (
         <>
-            <button className={props.color}>{props.name}</button>
+            <button data-testid="websiteButton" className={props.color}>{props.name}</button>
             <Style />
         </>
     )

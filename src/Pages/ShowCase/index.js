@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../../Components/Atoms/navbar/navbar';
 import Cards from '../../Components/Organisms/MainCards/maincards';
-import Bookmark from '../../Components/Molecules/BookMarkMenu/bookmarkmenu';
 import Button from '../../Components/Atoms/Button/Button';
 import Modal from 'react-modal';
 import { connect } from "react-redux";
@@ -48,12 +47,10 @@ const Mainscreen = (props) => {
         duplicateEducation[type] = value
         setEducation({ ...duplicateEducation })
     }
-    console.log(educations)
     return (
         <>
             <div>
                 <Navbar />
-                <Bookmark educations={educations} />
                 <div className="container">
                     <h1>Welcome to {userName} education page.</h1>
                     <div onClick={openModal}><Button name="Add New Education" color="blue" /></div>
